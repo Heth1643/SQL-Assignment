@@ -1,0 +1,35 @@
+Q-1 Print total number of boys and girls within a single record.
+	Fields : Boys, Girls
+
+	Required Output:
+	================
+	Boys	Girls
+	5	3
+
+ans = select count(case when flagsex='Male' then Recid end)as Boys,
+       count(case when flagsex='Female' then Recid end)as Girl from Student_details01;
+
+
+Q-2 Find total number of Hours for Boys and Girls. 
+	Fields : Gender, Present(Hrs)
+
+	Required Output:
+	================
+	Gender	Present(Hrs)
+	Boys	100
+	Girls	120
+
+ans = select sd.flagsex,sum(case when sd.flagsex='Male' then sh.hours when sd.flagsex='Female' then sh.hours end)as 'present(hrs)'
+from Student_details01 sd inner join  Student_hours01 sh on sd.Recid=sh.Recid group by flagsex;
+
+
+Q-3 Find all latest prices for each code for each product.
+	Fields : Product Name, Code, Date, Price
+
+	Required Output:
+	================
+	Product Name	Code	Date		Price
+	Computer	COMP	2007-01-01	Rs. 24,000/-
+
+ans =  select p.name,pp.code,pp.effdt,pp.price from product01 p inner join productprice pp on p.Recid=pp.Recid
+ where pp.effdt in(select max(effdt)from productprice group by code);
