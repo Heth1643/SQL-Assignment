@@ -1,0 +1,93 @@
+****************
+CREATE TABLE
+****************
+1] Table: Student01
+
+   Q=  create table Student01(
+          Recid int primary key,
+        name varchar(15));
+
+2] Table: Student_details01
+       
+ Q=     create table Student_details01(
+           Recid int references Student01(Recid),
+           student_id int primary key,
+           standard int,
+          flagsex varchar(10)  );
+
+3] Table: Student_present01
+
+ Q=     create table Student_present01(
+           Recid int references Student01(Recid),
+            student_id int references Student_details01(student_id),
+           month int,
+           present int);
+      
+4] Table : Student_hours01
+
+Q=     create table Student_hours01(
+           Recid int references Student01(Recid),
+            student_id int references Student_details01(student_id),
+          Datex date,
+           hours int);  
+
+******************
+Insert appropriate records in the above tables.
+******************
+
+1] Table: Student01
+
+Q = insert into Student01 values(01,'Hetul'); // insert more data like this
+
+02]  Table: Student_details01
+
+Q=  insert into Student_details01 values(01,101,8,'Male');
+
+03] Table: Student_present01
+
+Q= insert into Student_present01 values(01,101,2,40);
+
+04] Table : Student_hours01
+
+Q=  insert into Student_hours01 values(01,101,'2023-01-25',8);
+
+***********************
+ -  Display following details for each student:
+        
+        -   Name
+
+        -   Standard
+
+        -   Sex
+
+Q= select s.name,sd.standard,sd.flagsex from Student01 s inner join Student_details01 sd on s.Recid = sd.Recid;
+
+
+
+***********************
+
+The same above headers should be displayed in the query & apply sorting on Name.
+
+  Q1= Select sum(hours) as TotalHours,  s.name from Student01 s inner join Student_hours01  sh on s.Recid=sh.Recid group by name;
+
+  Q2 = Select avg(present) as Present,  s.name  from Student01 s inner join Student_present01  sp on s.Recid=sp.Recid group by name;
+
+  Q3 = Select min(present) as MinPresent from Student_present01;
+
+  Q4 = Select max(present) as MaxPresent from Student_present01; 
+
+***********************
+  Display fields like Name, Date, Hours from "studenthours" table where Date should be in following format :
+        
+        -   DD/MM/YY => select name , Date_format(Datex,"%d/%m/%y") as Date, hours from Student01 s inner join Student_hours01 sh on s.Recid=sh.recid;
+
+        -   MM/DD/YY => select name , Date_format(Datex,"%m/%d/%y") as Date, hours from Student01 s inner join Student_hours01 sh on s.Recid=sh.recid;
+
+        -   YYYY-MM-DD => select name , Date_format(Datex,"%Y/%m/%d") as Date, hours from Student01 s inner join Student_hours01 sh on s.Recid=sh.recid;
+
+          -  MM/DD Day => select name , Date_format(Datex,"%m/%d %a") as Date, hours from Student01 s inner join Student_hours01 sh on s.Recid=sh.recid;
+
+  
+
+       
+
