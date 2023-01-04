@@ -1,0 +1,57 @@
+Q-1 Write a query which will return value '5.0' for input value of '4.1' as well as '4.8'.
+ 
+ans = select ceil(4.1)from dual;  // 5
+
+Q-2 Write a query which will return value '4.0' for input value of '4.1' as well as '4.8'.
+
+ans = select floor(4.8)from dual; //4
+
+Q-4 Write a query to find 2 raise to power 3.
+
+ans =select pow(2,3)from dual; // 8 
+
+Q-5 Write a query to generate random number using MySQL function.
+
+ans = select rand()from dual;
+
+Q-6 Write a query to supply seed to the function generating random number.
+
+ans = select rand(5)from dual;
+
+Q-7 Write a query which will return value '4' for '3.5' and '3' for '3.4'.
+
+ans = select round(3.4)from dual; // select round(3.5)from dual;
+
+Q-8 Write a query so that output will be '15.75' for the value '15.7463847'.
+
+ans= select round(15.7463847,2) from dual;
+
+Q-9 Write a query to find square root of given value. What will be the output if the provided value is negative?
+ 
+Ans= select sqrt(49)from dual;  // if the value is negative it wil return null.
+
+Q-10 Write a query so that output will be '15.74' for the value '15.7463847'.
+ 
+ ans= select round(floor(15.7463847*100)/100,2) from dual;
+
+
+Q-11 Write a query which will output '15.2500' for provided value '15.25'.
+
+ANS = 	select round(15.25,4)from dual;
+
+
+Q=  What will be the output of following query:
+       A= SELECT MOD(11,3); 
+	B= SELECT 11 % 3;
+
+ ANS = A=SELECT MOD(11,3) FROM DUAL; // 2
+
+       B= select 11%3 from dual;  // 2
+
+************************************
+
+
+1]  - Write a query to display all the product names with code in bracket in one column and 2 decimal significant price in second column, 
+	e.g. : MySql book (MS09210) | 10.99
+
+ 
