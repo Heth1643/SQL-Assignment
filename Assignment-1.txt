@@ -1,0 +1,121 @@
+
+1]Table : student
+
+
+CREATE TABLE Student_details01 (
+  Name VARCHAR(15) NOT NULL,
+  Standard INTEGER  NOT NULL,
+  Sex VARCHAR(10) NOT NULL,
+  MPresent INTEGER  NOT NULL COMMENT 'monthly present day',
+ Dhours INTEGER  NOT NULL COMMENT 'Daily hours',
+  PRIMARY KEY (Name));
+
+
+2] TABLE:PRODUCTS01
+
+CREATE TABLE Products01 (
+  Name VARCHAR(25) NOT NULL,
+  price numeric NOT NULL);
+
+
+3] TABLE: MATERIALS
+
+CREATE TABLE MATERIALS01 (
+  Name VARCHAR(25) NOT NULL,
+  price VARCHAR(10) NOT NULL,
+  Date Date
+);
+
+
+**********************
+Insert appropriate records in each tables.
+*********************
+
+1] Table:Student_details01
+
+  01)  insert into Student_details01(name,standard,sex,mpresent,dhours) values('Hetul',11,'male',13,8); // like this insert data more.
+
+2] table: Products01
+
+  02)  insert into Products01(name,price) values('ASUS',20000.00);   // like this insert data more.
+
+
+03) Table: Materials01
+
+  03)   insert into materials01(name,price,Date) values('.Net','Rs.100','2023-01-01');  // like this insert data more.
+
+***********************
+Display all the records for each tables separately.
+***********************
+
+1] table: Student_details01
+
+    Q- Select *from Student_details01;
+
+   "Name"   , "Standard" , "Sex"  , "MPresent" , "Dhours"
+   "Heyansh"  ,  8        ,  "Male ,      20        ,8
+   "Hitesh"   ,  7          ,"Male"  ,     21      , 8 
+   "hiya"      , 12          ,"Female" ,    26      ,8
+   "janki"    ,11        ,"Female"   ,    13    ,7
+    "kiya"    ,8        ,"Female"     ,   22     ,8 
+   "kiyansh"  ,9,        "Male",          25     ,8
+
+
+2] table: Products01
+
+    Q- Select *from Products01;
+
+    "Name",  "price"
+     "HP",   23000
+    "LENOVO" ,25000
+
+3] table: MATERILAS01
+
+    Q- Select *from MATERIALS01;
+
+    "Name", "price",  "Date"
+    ".Net", "Rs.100", "2023-01-01"
+    "JAVASCRIPT", "Rs.200", "2023-02-11"
+    " JAVA", "Rs.300", "2023-02-18"
+
+********************
+Remove all the records from each tables (with and without using DELETE statement).
+********************
+
+1] TABLE: Student_details01
+
+    Q1= Delete from Student_details01;
+    
+    Q2= truncate table Student_details01;
+
+2] TABLE: Products01
+
+    Q1= Delete from  Products01;
+    
+    Q2= truncate table  Products01;
+
+3] TABLE: MATERIALS01
+
+
+    Q1= Delete from MATERILAS01;
+    
+    Q2= truncate table MATERIALS01;
+
+******************
+Delete all the above tables.
+******************
+1] TABLE: Student_details01
+
+   Q1= drop table Student_details01;
+
+2] TABLE: Products01
+
+   Q1= drop table Products01;
+
+3] TABLE: MATERILAS01
+
+   Q1= drop table MATERIALS01;
+
+
+    
+
