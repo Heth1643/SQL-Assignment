@@ -1,0 +1,80 @@
+  
+    -	student  (recid, name)  // Already created in Assignment-2
+
+    -   studentdetail (recid, studentid, standard, flagsex)
+
+    -   studentpresent (recid, studentid, month, present)
+
+    -   studenthours (recid, studentid, datex, hours)
+
+**********************
+Create Tables 
+**********************
+1] Table: product01 
+ 
+        Q= create table product01 (Recid int references Student01(Recid),
+                                      name varchar(15));
+2] Table: productprice
+
+
+       Q= create table productprice(
+                                    Recid int references Student01(Recid),
+				    productid int,
+				    code varchar(10),
+				   effdt date,
+				    price numeric);
+
+
+***************
+insert data into tables
+***************
+
+1] Table: product01 
+  
+   Q= insert into product01 values(1,'HP');  // INSERT MORE DATA
+
+          
+2] Table: productprice
+
+   Q= insert into  productprice values(1,1001,101,'2023-01-20',25000.00);       // INSERT MORE DATA           
+
+
+****************
+ Modification requirement:
+***************
+
+ 1] Change value of 'student.name' with any other value for student.recid = 3.
+
+   Q= update Student01 Set name='Hitesh' where Recid=3;
+    
+
+ 2] Update all "student" records to append character " A." as the middle name for "student.name" field.
+
+  Q= update Student01 Set name= CONCAT(name," A.");
+
+ 3] update all "productprice" records to add 25.00 in "price" field.
+
+  Q =  update productprice set price=25.00;
+ 
+ 4]  Update "product" table to add "Accer" in 'product.name' where related 'product.code = 103'
+
+   Q= update product01 set name="ACCER" where Recid=(select Recid from productprice where Code=103);
+     
+ 5] Update all "studentpresent" records to add 2 in 'studentpresentpresent' where related 'studenthours.hours >= 8'.
+   
+   Q= update Student_present01 set present=present+2 where Recid in(select Recid from Student_hours01 where hours>=8);
+
+********************
+Delete requirement:
+*******************
+1]Remove a record from "product" table where 'product.recid = 3'
+
+Q = delete from product01 where Recid=3;
+ 
+2] Remove all "student" records where the 'student.name' starts with character "H".
+
+Q= delete from Student01 where name like 'H%';
+
+3]   Remove all "studentdetails" record where related 'studenthours.hours <= 7'.
+
+Q= delete from Student_details01 where Recid in(select Recid from Student_hours01 where hours<=7);
